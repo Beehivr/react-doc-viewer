@@ -1,17 +1,15 @@
 {
  "name": "react-doc-viewer",
- "version": "0.1.4",
+ "version": "1.0.0",
  "description": "Document viewer for react. Renders online/local documents.",
  "author": "Matthew Mogford",
  "license": "ISC",
- "repository": {
-  "url": "https://github.com/Alcumus/react-doc-viewer"
- },
+ "files": [
+  "build/*"
+ ],
  "main": "build/index.js",
  "types": "build/index.d.ts",
  "dependencies": {
-  "pdfjs-dist": "2.4.456",
-  "react-pdf": "5.0.0",
   "styled-components": "^5.1.1",
   "wl-msg-reader": "^0.2.0"
  },
@@ -35,6 +33,7 @@
  "scripts": {
   "start": "react-scripts start",
   "build": "rm -rf build && tsc -p tsconfig-npm.json",
+  "prepare": "npm run build",
   "test": "react-scripts test",
   "eject": "react-scripts eject",
   "version:patch": "npm run version:pre && npm run version:changelog && npm version patch && npm run version:post",

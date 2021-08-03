@@ -8,7 +8,6 @@ import ImageProxyRenderer from "./plugins/image";
 import JPGRenderer from "./plugins/jpg";
 import MSDocRenderer from "./plugins/msdoc";
 import MSGRenderer from "./plugins/msg";
-import PDFRenderer from "./plugins/pdf";
 import PNGRenderer from "./plugins/png";
 import TIFFRenderer from "./plugins/tiff";
 import TXTRenderer from "./plugins/txt";
@@ -71,7 +70,6 @@ export {
   JPGRenderer,
   MSDocRenderer,
   MSGRenderer,
-  PDFRenderer,
   PNGRenderer,
   TIFFRenderer,
   TXTRenderer,
