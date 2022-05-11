@@ -1,11 +1,11 @@
 {
- "name": "react-doc-viewer",
+ "name": "beesbusy-react-doc-viewer",
  "version": "0.1.5",
  "description": "Document viewer for react. Renders online/local documents.",
  "author": "Matthew Mogford",
  "license": "ISC",
  "repository": {
-  "url": "https://github.com/Alcumus/react-doc-viewer"
+  "url": "https://github.com/beesbusy/react-doc-viewer"
  },
  "main": "build/index.js",
  "types": "build/index.d.ts",
