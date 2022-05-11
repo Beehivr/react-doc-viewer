@@ -21,6 +21,13 @@ const PDFControls: FC<{}> = () => {
   } = useContext(PDFContext);
 
   const currentDocument = mainState?.currentDocument || null;
+  let fileName = currentDocument ? currentDocument.uri || "" : "";
+  fileName = decodeURI(fileName);
+  fileName = fileName.split("?")[0];
+  const splitURL = fileName.split("/");
+  if (splitURL.length) {
+    fileName = splitURL[splitURL.length - 1];
+  }
 
   return (
     <Container id="pdf-controls">
@@ -30,7 +37,7 @@ const PDFControls: FC<{}> = () => {
         <DownloadButton
           id="pdf-download"
           href={currentDocument?.fileData as string}
-          download={decodeURI(currentDocument?.uri)}
+          download={fileName}
         >
           <DownloadPDFIcon color="#000" size="75%" />
         </DownloadButton>

@@ -38,13 +38,20 @@ export const ProxyRenderer: FC<{}> = () => {
       } else if (CurrentRenderer === undefined) {
         return null;
       } else {
+        let fileName = currentDocument ? currentDocument.uri || "" : "";
+        fileName = decodeURI(fileName);
+        fileName = fileName.split("?")[0];
+        const splitURL = fileName.split("/");
+        if (splitURL.length) {
+          fileName = splitURL[splitURL.length - 1];
+        }
         return (
           <div id="no-renderer" data-testid="no-renderer">
             No Renderer for file type {currentDocument?.fileType}
             <DownloadButton
               id="no-renderer-download"
               href={currentDocument?.uri}
-              download={decodeURI(currentDocument?.uri)}
+              download={fileName}
             >
               Download File
             </DownloadButton>
