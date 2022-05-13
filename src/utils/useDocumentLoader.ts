@@ -19,7 +19,7 @@ export const useDocumentLoader = (): {
   CurrentRenderer: DocRenderer | null | undefined;
 } => {
   const { state, dispatch } = useContext(DocViewerContext);
-  const { currentFileNo, currentDocument } = state;
+  const { currentFileNo, currentDocument, headers: defaultHeaders } = state;
 
   const { CurrentRenderer } = useRendererSelector();
 
@@ -33,10 +33,8 @@ export const useDocumentLoader = (): {
       const controller = new AbortController();
       const { signal } = controller;
 
-      const headers = new Headers({
-        'Range': 'bytes=0-0',
-      });
-      fetch(documentURI, { method: "GET", headers, signal }).then((response) => {
+      const headers = new Headers(defaultHeaders);
+      fetch(documentURI, { method: "HEAD", headers, signal }).then((response) => {
         const contentTypeRaw = response.headers.get("content-type");
         const contentTypes = contentTypeRaw?.split(";") || [];
         const contentType = contentTypes.length ? contentTypes[0] : undefined;

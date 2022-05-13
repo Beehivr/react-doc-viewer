@@ -36,8 +36,9 @@ const PDFControls: FC<{}> = () => {
       {currentDocument?.fileData && (
         <DownloadButton
           id="pdf-download"
-          href={currentDocument?.fileData as string}
-          download={fileName}
+          href={mainState?.onDownload ? undefined : currentDocument?.fileData as string}
+          download={mainState?.onDownload ? undefined : fileName}
+          onClick={mainState?.onDownload}
         >
           <DownloadPDFIcon color="#000" size="75%" />
         </DownloadButton>

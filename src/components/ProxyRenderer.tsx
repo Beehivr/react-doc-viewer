@@ -9,7 +9,7 @@ import { LoadingIcon } from "./icons";
 
 export const ProxyRenderer: FC<{}> = () => {
   const { state, dispatch, CurrentRenderer } = useDocumentLoader();
-  const { documents, documentLoading, currentDocument } = state;
+  const { documents, documentLoading, currentDocument, onDownload } = state;
 
   const size = useWindowSize();
 
@@ -50,8 +50,9 @@ export const ProxyRenderer: FC<{}> = () => {
             No Renderer for file type {currentDocument?.fileType}
             <DownloadButton
               id="no-renderer-download"
-              href={currentDocument?.uri}
-              download={fileName}
+              href={onDownload ? undefined : currentDocument?.uri}
+              download={onDownload ? undefined : fileName}
+              onClick={onDownload}
             >
               Download File
             </DownloadButton>
