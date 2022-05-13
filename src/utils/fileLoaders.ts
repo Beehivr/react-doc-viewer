@@ -22,7 +22,6 @@ const _fileLoader: BaseFileLoaderFunction = ({
 }) => {
   const headers = new Headers({
     ...defaultHeaders,
-    'Range': 'bytes=0-0',
   });
   return fetch(documentURI, { headers, signal })
     .then(async (res) => {
