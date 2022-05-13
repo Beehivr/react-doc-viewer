@@ -1,4 +1,5 @@
 export interface FileLoaderFuncProps {
+  headers: any;
   documentURI: string;
   signal: AbortSignal;
   fileLoaderComplete: FileLoaderComplete;
@@ -13,12 +14,17 @@ interface BaseFileLoaderFuncOptions extends FileLoaderFuncProps {
 }
 type BaseFileLoaderFunction = (props: BaseFileLoaderFuncOptions) => void;
 const _fileLoader: BaseFileLoaderFunction = ({
+  headers: defaultHeaders = {},
   documentURI,
   signal,
   fileLoaderComplete,
   readerTypeFunction,
 }) => {
-  return fetch(documentURI, { signal })
+  const headers = new Headers({
+    ...defaultHeaders,
+    'Range': 'bytes=0-0',
+  });
+  return fetch(documentURI, { headers, signal })
     .then(async (res) => {
       const blob = await res.blob();
 

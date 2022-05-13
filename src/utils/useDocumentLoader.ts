@@ -84,9 +84,9 @@ export const useDocumentLoader = (): {
     if (CurrentRenderer === null) {
       dispatch(setDocumentLoading(false));
     } else if (CurrentRenderer.fileLoader !== undefined) {
-      CurrentRenderer.fileLoader?.({ documentURI, signal, fileLoaderComplete });
+      CurrentRenderer.fileLoader?.({ headers: defaultHeaders, documentURI, signal, fileLoaderComplete });
     } else {
-      defaultFileLoader({ documentURI, signal, fileLoaderComplete });
+      defaultFileLoader({ headers: defaultHeaders, documentURI, signal, fileLoaderComplete });
     }
 
     return () => {
