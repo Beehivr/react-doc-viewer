@@ -35,9 +35,8 @@ export const useDocumentLoader = (): {
 
       const headers = new Headers({
         ...defaultHeaders,
-        'Range': 'bytes=0-0',
       });
-      fetch(documentURI, { method: "GET", headers, signal }).then((response) => {
+      fetch(documentURI, { method: "HEAD", headers, signal }).then((response) => {
         const contentTypeRaw = response.headers.get("content-type");
         const contentTypes = contentTypeRaw?.split(";") || [];
         const contentType = contentTypes.length ? contentTypes[0] : undefined;
