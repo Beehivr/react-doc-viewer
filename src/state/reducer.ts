@@ -18,7 +18,7 @@ import {
 export type IMainState = {
   currentFileNo: number;
   documents: IDocument[];
-  headers: any[];
+  headers: any;
   onDownload?: () => void;
   documentLoading?: boolean;
   currentDocument?: IDocument;
@@ -30,7 +30,7 @@ export type IMainState = {
 export const initialState: IMainState = {
   currentFileNo: 0,
   documents: [],
-  headers: [],
+  headers: {},
   onDownload: undefined,
   documentLoading: true,
   currentDocument: undefined,

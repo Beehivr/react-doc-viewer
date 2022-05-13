@@ -18,7 +18,7 @@ import { DocRenderer, IConfig, IDocument, ITheme } from "./types";
 
 export interface DocViewerProps {
   documents: IDocument[];
-  headers?: any[];
+  headers?: any;
   onDownload?: () => void;
   className?: string;
   style?: CSSProperties;
