@@ -25,6 +25,7 @@ export type IMainState = {
   rendererRect?: DOMRect;
   config?: IConfig;
   pluginRenderers?: DocRenderer[];
+  title?: string;
 };
 
 export const initialState: IMainState = {
@@ -37,6 +38,7 @@ export const initialState: IMainState = {
   rendererRect: undefined,
   config: {},
   pluginRenderers: [],
+  title: undefined,
 };
 
 export type MainStateReducer = (

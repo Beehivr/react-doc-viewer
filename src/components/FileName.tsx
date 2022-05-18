@@ -5,7 +5,7 @@ import { IStyledProps } from "../types";
 
 export const FileName: FC<{}> = () => {
   const {
-    state: { config, currentDocument },
+    state: { config, currentDocument, title },
   } = useContext(DocViewerContext);
 
   if (!currentDocument || config?.header?.disableFileName) return null;
@@ -24,7 +24,7 @@ export const FileName: FC<{}> = () => {
 
   return (
     <Container id="file-name" data-testid="file-name">
-      {fileName}
+      {title}
     </Container>
   );
 };

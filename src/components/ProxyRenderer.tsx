@@ -9,7 +9,7 @@ import { LoadingIcon } from "./icons";
 
 export const ProxyRenderer: FC<{}> = () => {
   const { state, dispatch, CurrentRenderer } = useDocumentLoader();
-  const { documents, documentLoading, currentDocument, onDownload } = state;
+  const { documents, documentLoading, currentDocument, onDownload, children } = state;
 
   const size = useWindowSize();
 
@@ -46,17 +46,19 @@ export const ProxyRenderer: FC<{}> = () => {
           fileName = splitURL[splitURL.length - 1];
         }
         return (
-          <div id="no-renderer" data-testid="no-renderer">
-            No Renderer for file type {currentDocument?.fileType}
-            <DownloadButton
-              id="no-renderer-download"
-              href={onDownload ? undefined : currentDocument?.uri}
-              download={onDownload ? undefined : fileName}
-              onClick={onDownload}
-            >
-              Download File
-            </DownloadButton>
-          </div>
+
+          {children}
+          // <div id="no-renderer" data-testid="no-renderer">
+          //   No Renderer for file type {currentDocument?.fileType}
+          //   <DownloadButton
+          //     id="no-renderer-download"
+          //     href={onDownload ? undefined : currentDocument?.uri}
+          //     download={onDownload ? undefined : fileName}
+          //     onClick={onDownload}
+          //   >
+          //     Download File
+          //   </DownloadButton>
+          // </div>
         );
       }
     }

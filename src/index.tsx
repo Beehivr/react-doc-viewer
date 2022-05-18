@@ -25,9 +25,10 @@ export interface DocViewerProps {
   config?: IConfig;
   theme?: ITheme;
   pluginRenderers?: DocRenderer[];
+  title: string;
 }
 
-const DocViewer: FC<DocViewerProps> = (props) => {
+const DocViewer: FC<DocViewerProps> = (props: DocViewerProps) => {
   const { documents, theme } = props;
 
   if (!documents || documents === undefined) {
