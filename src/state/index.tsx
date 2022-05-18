@@ -30,7 +30,7 @@ const AppProvider: FC<DocViewerProps> = (props) => {
     currentDocument: documents && documents.length ? documents[0] : undefined,
     config,
     pluginRenderers,
-    title
+    title,
   });
 
   // On inital load, and whenever they change,

@@ -7,10 +7,10 @@ import { useWindowSize } from "../utils/useWindowSize";
 import { LinkButton } from "./common";
 import { LoadingIcon } from "./icons";
 
-export const ProxyRenderer: FC<{}> = () => {
+export const ProxyRenderer: FC<{}> = (props) => {
   const { state, dispatch, CurrentRenderer } = useDocumentLoader();
   const { documents, documentLoading, currentDocument, onDownload, title } = state;
-
+  const {children} = props
   const size = useWindowSize();
 
   const containerRef = useCallback(
@@ -46,18 +46,9 @@ export const ProxyRenderer: FC<{}> = () => {
           fileName = splitURL[splitURL.length - 1];
         }
         return (
-
-          <div id="no-renderer" data-testid="no-renderer">
-            No Renderer for file type {currentDocument?.fileType}
-            <DownloadButton
-              id="no-renderer-download"
-              href={onDownload ? undefined : currentDocument?.uri}
-              download={onDownload ? undefined : title}
-              onClick={onDownload}
-            >
-              Download File
-            </DownloadButton>
-          </div>
+          <>
+            {children}
+          </>
         );
       }
     }
