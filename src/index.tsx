@@ -28,8 +28,8 @@ export interface DocViewerProps {
   title: string;
 }
 
-const DocViewer: FC<DocViewerProps> = (props: DocViewerProps) => {
-  const { documents, theme } = props;
+const DocViewer: FC<DocViewerProps> = (props) => {
+  const { documents, theme, children } = props;
 
   if (!documents || documents === undefined) {
     throw new Error(
@@ -48,7 +48,9 @@ const DocViewer: FC<DocViewerProps> = (props: DocViewerProps) => {
           {...props}
         >
           <HeaderBar />
-          <ProxyRenderer />
+          <ProxyRenderer>
+            {children}
+          </ProxyRenderer>
         </Container>
       </ThemeProvider>
     </AppProvider>
