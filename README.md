@@ -279,7 +279,7 @@ const JPGRenderer: DocRenderer = ({ mainState: { currentDocument } }) => {
 export default JPGRenderer;
 
 // List the MIME types that this renderer will respond to
-JPGRenderer.fileTypes = ["jpg", "jpeg", "image/jpg", "image/jpeg"];
+JPGRenderer.fileTypes = ["jpg", "jpeg", "image/jpg", "image/jpeg", "webp", "image/webp"];
 
 // If you have more than one renderer for the same MIME type, use weight. higher is more preferable.
 // Included renderers have a weight of zero
