@@ -4,7 +4,7 @@ import ImageProxyRenderer from "../image";
 
 const JPGRenderer: DocRenderer = (props) => <ImageProxyRenderer {...props} />;
 
-JPGRenderer.fileTypes = ["jpg", "jpeg", "image/jpg", "image/jpeg"];
+JPGRenderer.fileTypes = ["jpg", "jpeg", "image/jpg", "image/jpeg", "webp", "image/webp"];
 JPGRenderer.weight = 0;
 
 export default JPGRenderer;
