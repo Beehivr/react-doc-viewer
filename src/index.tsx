@@ -26,6 +26,7 @@ export interface DocViewerProps {
   theme?: ITheme;
   pluginRenderers?: DocRenderer[];
   title: string;
+  children?: React.ReactNode;
 }
 
 const DocViewer: FC<DocViewerProps> = (props) => {
